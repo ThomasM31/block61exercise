@@ -22,6 +22,8 @@ import java.util.List;
     public void translate(int x, int y){
         for (Polygon p : polygons) {
             p.translate(x,y);
+            // INTE BRA ATT DETTA GÅR
+            // p.getCenterPoint().x = 0;
         }
     }
 }

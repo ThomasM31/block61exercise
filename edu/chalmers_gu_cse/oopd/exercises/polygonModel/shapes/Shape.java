@@ -7,14 +7,15 @@ import java.awt.*;
  * Created by Niklas on 2016-02-14.
  */
 public abstract class Shape extends JComponent {
-    private final Point centerPoint;
+    // centerPoint behöver inte vara final, vi vill kunna förändra punkten
+    private Point centerPoint;
     private int scaleX = 10;
     private int scaleY = 10;
     private double rotation = 0; // Degrees clockwise
 
-    public Point getCenterPoint() {
-        return centerPoint;
-    }
+    // Kan ändra i centerPoint, returnera en klon istället
+    // public Pint getCenterPoint() { return new Point(centerPoint)}
+    public Point getCenterPoint(){ return centerPoint;}
     public int getScaleX() {
         return scaleX;
     }
@@ -33,6 +34,8 @@ public abstract class Shape extends JComponent {
     }
 
     public void translate(int x, int y){
+        // Vill kunna uppdatera punkten
+        // centerPoint = new Point(centerPoint.x + x,centerPoint.y + y);
         centerPoint.move(centerPoint.x + x,centerPoint.y + y);
     }
     public void scale(int x, int y){

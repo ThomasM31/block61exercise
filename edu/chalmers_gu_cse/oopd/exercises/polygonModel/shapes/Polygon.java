@@ -9,7 +9,8 @@ import java.util.List;
  */
 public abstract class Polygon extends Shape {
 
-    protected Polygon(int x, int y){ super(x,y); }
+    protected Polygon(int x, int y){
+        super(x,y); }
 
     public void paint(Graphics g){
         List<Point> corners = getCorners();
@@ -22,7 +23,11 @@ public abstract class Polygon extends Shape {
             }
             from = to;
         }
-
+    }
+    // THIS IS NOT GOOD! Här kan man flytta på centerPoint bäst man vill. Variabeln kan nås via getCenterPoint()
+    public Point getCenter() {
+        this.getCenterPoint().move(2,3);
+        return this.getCenterPoint();
     }
 
     protected abstract Point[] getOffsets();
